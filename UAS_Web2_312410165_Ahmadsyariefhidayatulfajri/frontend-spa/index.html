@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Inventory - Tugas UAS Web 2</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4/dist/vue-router.global.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div id="app">
+        <nav class="bg-teal-600 text-white p-4 shadow-md flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-xl font-bold">📦 E-Inventory</span>
+            </div>
+            <div class="space-x-4">
+                <router-link to="/" class="hover:text-teal-200 transition">Beranda</router-link>
+                <router-link to="/barang" class="hover:text-teal-200 transition">Dashboard Barang</router-link>
+                <button v-if="isLoggedIn" @click="handleLogout" class="bg-red-500 hover:bg-red-600 px-3 py-1 rounded transition text-sm cursor-pointer">
+                    Logout
+                </button>
+                <router-link v-else to="/login" class="bg-white text-teal-600 px-3 py-1 rounded font-semibold text-sm hover:bg-gray-100">
+                    Login
+                </router-link>
+            </div>
+        </nav>
+
+        <main class="container mx-auto p-6 max-w-6xl">
+            <router-view></router-view>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
